@@ -31,7 +31,7 @@ def combine_ints(int2: int, int4: int):
     of Iris Exchequer with two integers of 2 bytes and 4 bytes.
     These must be combined and then reversed to form a real48 float.
     '''
-    if -32767 <= int2 <= 32767 and -2147483648 <= int2 <= 2147483647:
+    if -32767 <= int2 <= 32767 and -2147483648 <= int4 <= 2147483647:
       small = struct.pack('>h', int2)                                                                                                                                          
       big = struct.pack('>i', int4)
       r48 = big + small
