@@ -32,11 +32,10 @@ def combine_ints(int2: int, int4: int):
     These must be combined and then reversed to form a real48 float.
     '''
     if -32767 <= int2 <= 32767 and -2147483648 <= int2 <= 2147483647:
-      first = struct.pack('h', int2)                                                                                                                                          
-      second = struct.pack('i', int4)
-      combined = first + second
-      real48 = combined[::-1]
-      return real48
+      small = struct.pack('>h', int2)                                                                                                                                          
+      big = struct.pack('>i', int4)
+      r48 = big + small
+      return r48
     else:
       raise ValueError('The arguments provided are not within the required range')
 
